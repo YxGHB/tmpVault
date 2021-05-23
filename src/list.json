@@ -67,10 +67,10 @@
     "ubuntu": {
         "version": "focal",
         "lxc": true,
-        "aarch64": "https://mirrors.tuna.tsinghua.edu.cn/lxc-images/images/ubuntu/focal/arm64/default/20210521_09:31/",
-        "armhf": "https://mirrors.tuna.tsinghua.edu.cn/lxc-images/images/ubuntu/focal/armhf/default/20210521_09:31/",
-        "amd64": "https://mirrors.tuna.tsinghua.edu.cn/lxc-images/images/ubuntu/focal/amd64/default/20210521_09:31/",
-        "i386": "https://mirrors.tuna.tsinghua.edu.cn/lxc-images/images/ubuntu/focal/i386/default/20210521_09:31/",
+        "aarch64": "https://mirrors.tuna.tsinghua.edu.cn/lxc-images/images/ubuntu/focal/arm64/default/20210521_09%3A31/",
+        "armhf": "https://mirrors.tuna.tsinghua.edu.cn/lxc-images/images/ubuntu/focal/armhf/default/20210521_09%3A31/",
+        "amd64": "https://mirrors.tuna.tsinghua.edu.cn/lxc-images/images/ubuntu/focal/amd64/default/20210521_09%3A31/",
+        "i386": "https://mirrors.tuna.tsinghua.edu.cn/lxc-images/images/ubuntu/focal/i386/default/20210521_09%3A31/",
         "check": "lxc",
         "zip": "xz"
     }
