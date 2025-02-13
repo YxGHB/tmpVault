@@ -1,3 +1,58 @@
-[20:36:48] Provider [default]: 
-[20:37:00] Update package index for aarch64 (4 file(s))
-[20:37:15] ERROR: Compressed file ended before the end-of-stream marker was reached
+[21:02:34] Traceback (most recent call last):
+  File "/home/pmbootstrap/pmb/__init__.py", line 84, in main
+    config_init.frontend(args)
+  File "/home/pmbootstrap/pmb/config/init.py", line 802, in frontend
+    ui = ask_for_ui(deviceinfo)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pmbootstrap/pmb/config/init.py", line 229, in ask_for_ui
+    ui_list = pmb.helpers.ui.list_ui(deviceinfo.arch)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pmbootstrap/pmb/helpers/ui.py", line 29, in list_ui
+    if pmb.helpers.package.check_arch(apkbuild["pkgname"], arch):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pmbootstrap/pmb/helpers/package.py", line 173, in check_arch
+    arches = get(pkgname, arch).arch
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/pmbootstrap/pmb/meta/__init__.py", line 42, in __call__
+    self.cache.cache[key] = self.func(*args, **kwargs)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pmbootstrap/pmb/helpers/package.py", line 87, in get
+    ret_repo = pmb.parse.apkindex.package(pkgname, arch, False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pmbootstrap/pmb/parse/apkindex.py", line 471, in package
+    package_providers = providers(
+                        ^^^^^^^^^^
+  File "/home/pmbootstrap/pmb/parse/apkindex.py", line 369, in providers
+    index_packages = parse(path)
+                     ^^^^^^^^^^^
+  File "/home/pmbootstrap/pmb/parse/apkindex.py", line 255, in parse
+    with tar.extractfile(tar.getmember("APKINDEX")) as handle:  # type:ignore[union-attr]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/tarfile.py", line 2016, in getmember
+    tarinfo = self._getmember(name.rstrip('/'))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/tarfile.py", line 2690, in _getmember
+    members = self.getmembers()
+              ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/tarfile.py", line 2027, in getmembers
+    self._load()        # all members, we first have to
+    ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/tarfile.py", line 2729, in _load
+    while self.next() is not None:
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/tarfile.py", line 2635, in next
+    self.fileobj.seek(self.offset - 1)
+  File "/usr/lib/python3.12/gzip.py", line 421, in seek
+    return self._buffer.seek(offset, whence)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/_compression.py", line 153, in seek
+    data = self.read(min(io.DEFAULT_BUFFER_SIZE, offset))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/gzip.py", line 547, in read
+    raise EOFError("Compressed file ended before the "
+EOFError: Compressed file ended before the end-of-stream marker was reached
+
+
+Before you report this error, ensure that pmbootstrap is up to date.
+Find the latest version here: https://gitlab.postmarketos.org/postmarketOS/pmbootstrap/-/tags
+
